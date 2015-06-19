@@ -9,8 +9,9 @@ An Android App with all placement papers
 ## API Request URL ##
 ### Fetching Companies with paper ###
 GET Request parameter
-- limit (number)
-- page (number)
-`
+- limit (number, the number of results per page)
+- page (number. pagination based on limit per page)
+- q(text, company name search)
+```
 http://swiftintern.com/organizations/placementpapers.json
-`
+```
