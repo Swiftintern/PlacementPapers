@@ -25,7 +25,7 @@ http://swiftintern.com/organizations.json
 ```
 
 ### Fetching Photo ###
-Make request to `swiftintern.com/organizations/photo/{organization_id}`
+Make request to `http://swiftintern.com/organizations/photo/{organization_id}`
 
 ### Fetching Company papers and Details ###
 ```
