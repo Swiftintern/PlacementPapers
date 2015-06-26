@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/blue_400</item>
+        <item name="colorPrimaryDark">#1976D2</item>
+        <item name="colorAccent">#448AFF</item>
+
+    </style>
+
+    <style name="MyNavigationDrawerTheme" parent="MaterialNavigationDrawerTheme">
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimaryDark">#1976D2</item>
+        <item name="colorAccent">#448AFF</item>
+        <item name="drawerColor">@color/dark_purple_300</item>
+        <item name="singleAccount">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="windowActionBar">false</item>
+    </style>
+    <style name="Toolbar" parent="Theme.AppCompat">
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimaryDark">#1976D2</item>
+        <item name="colorAccent">#448AFF</item>
+    </style>
+    <style name="login" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/bg_login</item>
+        <item name="colorPrimaryDark">#1c745e</item>
+        <item name="colorAccent">#28ccac</item>
+    </style>
+</resources>
