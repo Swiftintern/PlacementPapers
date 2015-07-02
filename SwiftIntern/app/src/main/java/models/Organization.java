@@ -13,6 +13,18 @@ public class Organization {
     @SerializedName("_name")
     private String name;
 
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    @SerializedName("_website")
+    private  String website;
+
+
 
     public String getId() {
         return id;

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/company_details">
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/company_image"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name"
+            android:id="@+id/company_name"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/company_image"
+
+        android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Website id"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/company_name"
+            android:layout_alignLeft="@+id/company_name"
+            android:layout_toRightOf="@+id/company_image"
+
+        android:id="@+id/website_name"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/experience_list"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

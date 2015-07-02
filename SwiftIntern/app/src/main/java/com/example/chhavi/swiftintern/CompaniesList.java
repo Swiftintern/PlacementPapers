@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,15 +20,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.volley.toolbox.Volley;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
+import com.example.chhavi.swiftintern.Utility.Utils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -75,6 +81,8 @@ GridView companiesList;
             return new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
+                    if(volleyError instanceof NoConnectionError || volleyError instanceof TimeoutError)
+                        Utils.noNetworkMessage(CompaniesList.this, myReq);
 
                 }
             };
@@ -110,7 +118,15 @@ GridView companiesList;
 
     }
 
-  /*  @Nullable
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+      //  return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.companies_list_menu, menu);
+        return true;
+    }
+
+    /*  @Nullable
     @Override
     public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -172,8 +188,8 @@ GridView companiesList;
             ImageLoader imageLoader = ImageLoader.getInstance();
             imageLoader.init(ImageLoaderConfiguration.createDefault(context));
             DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
-                    .resetViewBeforeLoading(true).showImageForEmptyUri(R.drawable.ic_play_light)
-                    .showImageOnFail(R.drawable.ic_play_light).showImageOnLoading(R.drawable.ic_play_light).build();
+                    .resetViewBeforeLoading(true).showImageForEmptyUri(R.drawable.final_image)
+                    .showImageOnFail(R.drawable.final_image).showImageOnLoading(R.drawable.final_image).build();
 
             imageLoader.displayImage(organization.getImage(), drawerHolder.icon, options);
             drawerHolder.ItemName.setText(organization.getName());
