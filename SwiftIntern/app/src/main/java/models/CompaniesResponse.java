@@ -7,14 +7,14 @@ import java.util.List;
  */
 public class CompaniesResponse {
 
-    private  int limit;
+    private  String limit;
     private  int page;
 
-    public int getLimit() {
+    public String getLimit() {
         return limit;
     }
 
-    public void setLimit(int limit) {
+    public void setLimit(String limit) {
         this.limit = limit;
     }
 

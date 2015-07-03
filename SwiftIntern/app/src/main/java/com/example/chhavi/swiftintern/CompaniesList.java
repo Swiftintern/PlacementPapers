@@ -1,6 +1,7 @@
 package com.example.chhavi.swiftintern;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.android.volley.NoConnectionError;
@@ -45,6 +47,7 @@ import models.Organization;
  */
 public class CompaniesList extends ActionBarActivity implements AdapterView.OnItemClickListener {
 GridView companiesList;
+    SearchView searchView;
     GsonRequest<CompaniesResponse> myReq;
     List<Organization> organisations;
     @Override
@@ -123,6 +126,13 @@ GridView companiesList;
       //  return super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.companies_list_menu, menu);
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+         searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
         return true;
     }
 
@@ -146,8 +156,17 @@ GridView companiesList;
         return v;
     }*/
 
-    public class customDrawerAdapter extends ArrayAdapter<Organization> {
+    @Override
+    public void onBackPressed() {
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
+    public class customDrawerAdapter extends ArrayAdapter<Organization> {
+        ImageLoader imageLoader;
         Context context;
         List<Organization> OrganisationList;
         int layoutResID;
@@ -157,6 +176,8 @@ GridView companiesList;
             this.context = context;
             this.OrganisationList = listItems;
             this.layoutResID = layoutResourceID;
+            imageLoader = ImageLoader.getInstance();
+            imageLoader.init(ImageLoaderConfiguration.createDefault(context));
 
         }
 
@@ -185,8 +206,7 @@ GridView companiesList;
             Organization organization = (Organization) this.OrganisationList.get(position);
 
          //   drawerHolder.icon.setImageDrawable(view.getResources().getDrawable(dItem.getImgResID()));
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.init(ImageLoaderConfiguration.createDefault(context));
+
             DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
                     .resetViewBeforeLoading(true).showImageForEmptyUri(R.drawable.final_image)
                     .showImageOnFail(R.drawable.final_image).showImageOnLoading(R.drawable.final_image).build();

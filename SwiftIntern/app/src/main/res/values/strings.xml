@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SwiftIntern</string>
+    <string name="searnch_hint">Enter Organisation</string>
 </resources>

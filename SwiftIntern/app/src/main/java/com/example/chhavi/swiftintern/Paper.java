@@ -5,6 +5,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,6 +51,7 @@ public class Paper extends ActionBarActivity {
         
         setContentView(R.layout.experience_list_layout);
         paperText = (TextView)findViewById(R.id.paper_text);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle extras = getIntent().getExtras();
          companyId = extras.getString("company_id");
         String url = "http://swiftintern.com/organization/detail/"+companyId+".json";
@@ -141,5 +143,17 @@ public class Paper extends ActionBarActivity {
 
      //   int pos = (Integer)v.getTag();
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // return super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()){
+
+            case android.R.id.home:
+                this.finish();
+
+        }
+        return true;
     }
 }
