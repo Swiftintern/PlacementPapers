@@ -31,3 +31,16 @@ Make request to `http://swiftintern.com/organizations/photo/{organization_id}`
 ```
 http://swiftintern.com/organization/detail/{organization_id}.json
 ```
+### Registering Student  ###
+POST Request parameter
+- name (required)
+- email (required)
+- phone (optional)
+- city (optional)
+Returns 
+"success": true //when request sucessful
+"success": false //when request not sucessful
+
+```
+http://swiftintern.com/app/student.json
+```
