@@ -5,6 +5,18 @@
     android:background="@color/white"
     android:id="@+id/companies_layout">
 
+    <TextView
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:text="   Recently Added"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+
+        android:background="@color/teal_A700"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
