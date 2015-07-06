@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
+import com.google.android.gms.analytics.HitBuilders;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -152,6 +153,9 @@ public class Paper extends ActionBarActivity {
 
             case android.R.id.home:
                 this.finish();
+                AppController.tracker().send(new HitBuilders.EventBuilder("ui", "open")
+                        .setLabel("settings")
+                        .build());
 
         }
         return true;

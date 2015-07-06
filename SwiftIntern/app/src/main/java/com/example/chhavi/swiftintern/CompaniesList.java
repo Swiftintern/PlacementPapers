@@ -136,6 +136,7 @@ GridView companiesList;
         return true;
     }
 
+
     /*  @Nullable
     @Override
     public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

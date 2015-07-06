@@ -6,13 +6,23 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 public class AppController extends Application {
 
 	public static final String TAG = AppController.class.getSimpleName();
 
 	private RequestQueue mRequestQueue;
+	public static GoogleAnalytics analytics;
+	public static Tracker tracker;
 	private static AppController mInstance;
+	public static Tracker tracker() {
+		return tracker;
+	}
+	public static GoogleAnalytics analytics() {
+		return analytics;
+	}
 
 	@Override
 	public void onCreate() {
@@ -21,6 +31,13 @@ public class AppController extends Application {
 		FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Raleway-Regular.ttf");
 		FontsOverride.setDefaultFont(this, "SERIF", "fonts/Raleway-Regular.ttf");
 		FontsOverride.setDefaultFont(this, "SANS_SERIF", "fonts/Raleway-Regular.ttf");*/
+		analytics = GoogleAnalytics.getInstance(this);
+		analytics.setLocalDispatchPeriod(1800);
+
+		tracker = analytics.newTracker("UA-49272936-4"); // Replace with actual tracker/property Id
+		tracker.enableExceptionReporting(true);
+		tracker.enableAdvertisingIdCollection(true);
+		tracker.enableAutoActivityTracking(true);
 		mInstance = this;
 	}
 
