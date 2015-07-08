@@ -1,9 +1,9 @@
 # PlacementPapers
-An Android App with all placement papers
+An Android App to help crack interviews of top companies
 
 ## Features
 - Sharing Placement Paper or Interview Experience Company/Organization wise
-- Upvote/Downvote Paper
+- Add Placement Paper, Share Internship Experience
 - Save Offline for later browsing
 
 ## API Request URL ##
