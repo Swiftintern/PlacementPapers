@@ -48,12 +48,11 @@ http://swiftintern.com/app/student.json
 POST Request parameter
 - title (title of paper)
 - details (details of paper)
-- organization_id (organization id whose paper is added)
 - user_id (user id of the person using app)
 Returns 
 "success": true //when request sucessful
 "success": false //when request not sucessful
 
 ```
-http://swiftintern.com/organizations/saveExperience.json
+http://swiftintern.com/organizations/saveExperience/{organization_id}.json
 ```
