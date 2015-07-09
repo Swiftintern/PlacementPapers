@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -7,6 +8,7 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
 
         android:layout_height="wrap_content"
         android:text="   Recently Added"
@@ -16,6 +18,14 @@
         android:background="@color/teal_A700"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal" />
+    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+        android:id="@+id/google_progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        gpb:type="chrome_floating_circles"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
 
     <GridView
         android:layout_width="match_parent"
@@ -23,6 +33,7 @@
         android:id="@+id/companies_list"
         android:verticalSpacing="5dp"
         android:layout_margin="10dp"
+        android:layout_below="@+id/textView"
 
         android:numColumns="3" />
-</LinearLayout>
+</RelativeLayout>

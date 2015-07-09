@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
 import com.google.android.gms.analytics.HitBuilders;
+import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -46,6 +48,8 @@ public class Paper extends ActionBarActivity {
     ImageView orgImage;
     TextView webName;
     ListView experienceList;
+    LinearLayout mainLayout;
+    GoogleProgressBar progressBar;
    public static Organization organization;
     public static List<Experience> experiences;
     @Override
@@ -63,6 +67,8 @@ public class Paper extends ActionBarActivity {
         orgImage = (ImageView)findViewById(R.id.company_image);
         webName = (TextView)findViewById(R.id.website_name);
         experienceList = (ListView)findViewById(R.id.experience_list);
+        mainLayout = (LinearLayout)findViewById(R.id.main_layout);
+        progressBar = (GoogleProgressBar)findViewById(R.id.google_progress);
         loadContent(url);
 
 
@@ -98,6 +104,8 @@ public class Paper extends ActionBarActivity {
             public void onResponse(PapersResponse papersResponse) {
 
                 makeLayout(papersResponse);
+                progressBar.setVisibility(View.GONE);
+                mainLayout.setVisibility(View.VISIBLE);
 
 
             }

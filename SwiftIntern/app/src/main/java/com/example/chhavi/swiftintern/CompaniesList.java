@@ -35,6 +35,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
+import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -49,20 +50,24 @@ public class CompaniesList extends ActionBarActivity implements AdapterView.OnIt
 GridView companiesList;
     SearchView searchView;
     GsonRequest<CompaniesResponse> myReq;
+    GoogleProgressBar progressBar;
+
     List<Organization> organisations;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.companies_list);
+        progressBar = (GoogleProgressBar)findViewById(R.id.google_progress);
        // CompaniesList.imageLoader.init(ImageLoaderConfiguration.createDefault(getBaseCont‌​ext()));
         //x`getActionBar().show();
-        Bundle extras = getIntent().getExtras();
+       /* Bundle extras = getIntent().getExtras();
         if(extras!=null){
             TextView text = (TextView)findViewById(R.id.textView);
             text.setText(extras.getString("experience"));
 
-        }
+        }*/
         companiesList = (GridView)findViewById(R.id.companies_list);
+        companiesList.setVisibility(View.INVISIBLE);
         String url = "http://swiftintern.com/organizations/placementpapers.json";
         loadContent(url);
 
@@ -106,6 +111,8 @@ GridView companiesList;
 
             @Override
             public void onResponse(CompaniesResponse companiesResponse) {
+                progressBar.setVisibility(View.GONE);
+                companiesList.setVisibility(View.VISIBLE);
             organisations  = companiesResponse.getOrganizations();
 
                 customDrawerAdapter adapter = new customDrawerAdapter(CompaniesList.this,R.layout.companies_list_item,organisations);
