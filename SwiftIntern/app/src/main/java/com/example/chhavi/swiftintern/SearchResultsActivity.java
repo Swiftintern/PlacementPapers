@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -35,6 +36,7 @@ import models.Organization;
 public class SearchResultsActivity extends ActionBarActivity {
     GsonRequest<CompaniesResponse> myReq;
     List<Organization> organizations;
+    private TextView noOrg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,27 +93,36 @@ public class SearchResultsActivity extends ActionBarActivity {
                 Log.e("response", companiesResponse.toString());
 
                 setContentView(R.layout.search_results_layout);
+                noOrg = (TextView)findViewById(R.id.no_organisations_message);
                 ListView searchResults = (ListView)findViewById(R.id.results_list);
 
                 organizations = companiesResponse.getOrganizations();
-                ArrayList<String> names = new ArrayList<String>();
-                for(Organization organization:organizations){
-                    names.add(organization.getName());
+                if(organizations!=null) {
+                    ArrayList<String> names = new ArrayList<String>();
+                    for (Organization organization : organizations) {
+                        names.add(organization.getName());
 
-                }
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(SearchResultsActivity.this,android.R.layout.simple_list_item_1, android.R.id.text1, names);
-
-                searchResults.setAdapter(adapter);
-                searchResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String companyId = organizations.get(position).getId();
-                        Intent i = new Intent(SearchResultsActivity.this, Paper.class);
-                        i.putExtra("company_id",companyId);
-                        startActivity(i);
                     }
-                });
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(SearchResultsActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, names);
+
+                    searchResults.setAdapter(adapter);
+                    searchResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String companyId = organizations.get(position).getId();
+                            Intent i = new Intent(SearchResultsActivity.this, Paper.class);
+                            i.putExtra("company_id", companyId);
+                            startActivity(i);
+                        }
+                    });
+                }
+                else{
+                    noOrg.setVisibility(View.VISIBLE);
+
+
+                    //TODO add no organisations found mesage
+                }
 
 
             }

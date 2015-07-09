@@ -8,8 +8,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.orm.SugarApp;
 
-public class AppController extends Application {
+public class AppController extends SugarApp {
 
 	public static final String TAG = AppController.class.getSimpleName();
 
@@ -27,6 +28,8 @@ public class AppController extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		//SugarContext.init(this);
+		//SugarContext.init(this);
 	/*	FontsOverride.setDefaultFont(this, "DEFAULT", "fonts/Raleway-Regular.ttf");
 		FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Raleway-Regular.ttf");
 		FontsOverride.setDefaultFont(this, "SERIF", "fonts/Raleway-Regular.ttf");

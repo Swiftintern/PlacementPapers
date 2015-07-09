@@ -18,4 +18,14 @@
         android:layout_centerVertical="true"
         android:visibility="gone"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_org_found"
+        android:visibility="gone"
+        android:gravity="center"
+        android:id="@+id/no_organisations_message"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
