@@ -29,6 +29,7 @@
             android:value="@integer/google_play_services_version" />
 
 
+
         <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background
              dispatching on non-Google Play devices -->
         <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver"
@@ -91,6 +92,10 @@
             android:label="Experiences"
             >
             </activity>
+        <activity android:name=".AddExperience"
+            android:label="Experiences"
+            >
+        </activity>
         <activity android:name=".ExperienceDetail"
             android:label="Experiences"
             >

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+
+        android:layout_gravity="center_horizontal"
+
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organisation"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:id="@+id/organistion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organisation Name"
+            android:layout_weight="6"
+            android:id="@+id/org_name" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:id="@+id/textView3" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Give a Title"
+            android:id="@+id/title"
+            android:layout_weight="6" />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/experience_text"
+        android:layout_height="0dip"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:layout_weight="7"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:hint="Type your experience here"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_weight="1"
+        android:id="@+id/submit"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -5,6 +5,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -119,7 +121,9 @@ public class Paper extends ActionBarActivity {
         }
         ArrayList<String> titles = new ArrayList<String>();
         for(Experience experience:experiences){
-            titles.add(experience.getTitle());
+            String title = experience.getTitle();
+            title = title.replace("&amp;", "&");
+            titles.add(title);
 
         }
 
@@ -145,6 +149,13 @@ public class Paper extends ActionBarActivity {
      //   int pos = (Integer)v.getTag();
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.paper_list_menu, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // return super.onOptionsItemSelected(item);
@@ -156,8 +167,18 @@ public class Paper extends ActionBarActivity {
                 AppController.tracker().send(new HitBuilders.EventBuilder("ui", "open")
                         .setLabel("settings")
                         .build());
+                break;
+            case R.id.add_paper:
+                Intent i = new Intent(Paper.this,AddExperience.class);
+                startActivity(i);
+                break;
+
 
         }
         return true;
     }
+
+
+
+
 }

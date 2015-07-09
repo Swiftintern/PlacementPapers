@@ -56,6 +56,12 @@ GridView companiesList;
         setContentView(R.layout.companies_list);
        // CompaniesList.imageLoader.init(ImageLoaderConfiguration.createDefault(getBaseCont‌​ext()));
         //x`getActionBar().show();
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            TextView text = (TextView)findViewById(R.id.textView);
+            text.setText(extras.getString("experience"));
+
+        }
         companiesList = (GridView)findViewById(R.id.companies_list);
         String url = "http://swiftintern.com/organizations/placementpapers.json";
         loadContent(url);

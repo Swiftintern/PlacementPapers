@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@color/white"
+
         android:layout_gravity="center_horizontal"
         android:id="@+id/company_details">
 
@@ -53,11 +53,22 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Of Experiences"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+
+        android:textSize="20sp"
+        android:id="@+id/textView2" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
         android:id="@+id/experience_list"
         android:layout_gravity="center_horizontal" />
 
