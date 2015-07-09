@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,6 +43,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import models.CompaniesResponse;
 import models.Organization;
+import models.SavedExperience;
 
 /**
  * Created by chhavi on 18/6/15.
@@ -70,6 +72,8 @@ GridView companiesList;
         companiesList.setVisibility(View.INVISIBLE);
         String url = "http://swiftintern.com/organizations/placementpapers.json";
         loadContent(url);
+
+
 
       /*  ArrayList<drawerItem> list = new ArrayList<drawerItem>();
         list.add(new drawerItem("Google",R.drawable.google));
@@ -137,6 +141,7 @@ GridView companiesList;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
       //  return super.onCreateOptionsMenu(menu);
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.companies_list_menu, menu);
         SearchManager searchManager =
@@ -149,7 +154,23 @@ GridView companiesList;
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
 
+            case R.id.view_saved_papers:
+                //this.finish();
+                Intent i = new Intent(CompaniesList.this,ViewSavedPapers.class);
+                startActivity(i);
+             /*   List<SavedExperience> savedExperienceList = SavedExperience.listAll(SavedExperience.class);
+                Log.e("saved", savedExperienceList.get(0).getText());*/
+
+                break;
+
+
+        }
+        return true;
+    }
     /*  @Nullable
     @Override
     public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
