@@ -9,8 +9,8 @@
         android:text="Name"
         android:id="@+id/textView4"
         android:textSize="20sp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginStart="99dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="203dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,6 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
+        android:textSize="20sp"
+
         android:id="@+id/textView5"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="10dp"
@@ -34,12 +36,14 @@
         android:layout_above="@+id/textView5"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4"
+        android:layout_marginLeft="10dp"
         android:layout_alignBaseline="@+id/textView4" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+
+        android:id="@+id/account_names_spinner"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignLeft="@+id/name_text"
         android:layout_alignStart="@+id/name_text" />
@@ -48,8 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/button"
-        android:layout_below="@+id/spinner"
+        android:id="@+id/register_button"
+        android:background="@color/blue_300"
+        android:layout_below="@+id/account_names_spinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp" />
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package com.example.chhavi.swiftintern;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
@@ -60,6 +62,8 @@ GridView companiesList;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.companies_list);
         progressBar = (GoogleProgressBar)findViewById(R.id.google_progress);
+
+
        // CompaniesList.imageLoader.init(ImageLoaderConfiguration.createDefault(getBaseCont‌​ext()));
         //x`getActionBar().show();
        /* Bundle extras = getIntent().getExtras();
