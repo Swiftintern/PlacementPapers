@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -54,12 +55,20 @@ public class AddExperience extends AppCompatActivity {
             public void onClick(View v) {
                 String orgTitle = title.getText().toString();
                 if(experience.getText().toString()!=null && !experience.getText().toString().equals("") && orgTitle!=null && !orgTitle.equals("")){
-                    experienceString = experience.getText().toString();
-                    // Log.e("response", experienceString);
-                    experienceString = TextUtils.htmlEncode(experienceString);
+                  //  experienceString = experience.getText().toString().replaceAll("\\n", "<br>");
+                    //
+                    //experienceString = TextUtils.htmlEncode(experienceString);
+                    //Log.e("response", experienceString);
+                    experienceString = Html.toHtml(experience.getText());
+                    //Log.e("response", experienceString);
+
+                    /*text.setText(experienceString);
+                    text.setText(Html.fromHtml(experienceString));*/
                     saveExperience(orgTitle,experienceString);
+                }else{
+                    Toast.makeText(AddExperience.this,"Please fill all details",Toast.LENGTH_LONG);
                 }
-            //    text.setText(TextUtils.htmlEncode(experience.getText().toString()));
+            //
 
              //   experience.setText(experienceString);
                 //Log.e("response", experienceString);
