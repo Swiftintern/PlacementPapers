@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.chhavi.swiftintern.Utility.Constants;
 
 import models.SavedExperience;
 
@@ -57,6 +60,7 @@ public class ExperienceDetail extends ActionBarActivity {
                // SavedExperience savedExperience = new SavedExperience("Title here", "2nd edition");
                 SavedExperience savedExperience = new SavedExperience(detail,paperTitle,paperId);
                 savedExperience.save();
+                Toast.makeText(ExperienceDetail.this, Constants.SAVE_PAPER,Toast.LENGTH_SHORT).show();
                // Log.e("sometjiing","title");
                 break;
 

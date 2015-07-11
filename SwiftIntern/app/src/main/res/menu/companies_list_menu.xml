@@ -11,7 +11,7 @@
         app:actionViewClass="android.widget.SearchView" />
     <item
         android:id="@+id/view_saved_papers"
-        android:title="View Saved Papers"
+        android:title="View Saved Experiences"
 
         app:showAsAction="never"
        />

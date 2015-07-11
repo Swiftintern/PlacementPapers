@@ -116,6 +116,12 @@
         <activity android:name=".LogInActivity"
             android:label="Placement Experiences"
             >
+
+
+        </activity>
+        <activity android:name=".SplashScreen"
+            android:label="Placement Experiences"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
