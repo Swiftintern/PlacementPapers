@@ -41,6 +41,7 @@ public class SplashScreen extends Activity implements Animation.AnimationListene
                          i = new Intent(SplashScreen.this, LogInActivity.class);
                     }
                     startActivity(i);
+                    finish();
                 }
 
             }

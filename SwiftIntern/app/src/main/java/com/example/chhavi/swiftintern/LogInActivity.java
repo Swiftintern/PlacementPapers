@@ -120,6 +120,7 @@ public class LogInActivity extends Activity {
              //   mHandler.postDelayed(mUpdateTimeTask,1000);
                 Intent i = new Intent(LogInActivity.this,CompaniesList.class);
                 startActivity(i);
+                finish();
 
 
 /*
