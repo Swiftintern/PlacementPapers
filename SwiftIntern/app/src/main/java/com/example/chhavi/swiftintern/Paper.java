@@ -178,6 +178,7 @@ public class Paper extends ActionBarActivity {
                 break;
             case R.id.add_paper:
                 Intent i = new Intent(Paper.this,AddExperience.class);
+                i.putExtra("organisation_id",organization.getId());
                 startActivity(i);
                 break;
 

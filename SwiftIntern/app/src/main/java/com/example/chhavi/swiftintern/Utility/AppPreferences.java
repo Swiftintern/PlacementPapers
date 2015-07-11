@@ -26,9 +26,9 @@ public class AppPreferences {
         editor.commit();
     }
 
-    public static int getUserId(Context mContext) {
+    public static String getUserId(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("basicProfile", 0);
-        return prefs.getInt("userId", 311);
+        return prefs.getString("user_id", "100");
     }
 
     public static boolean isLoggedIn(Context mContext) {
