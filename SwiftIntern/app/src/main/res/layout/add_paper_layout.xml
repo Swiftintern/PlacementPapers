@@ -8,7 +8,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
+
+        android:layout_marginTop="15dp"
 
         android:layout_gravity="center_horizontal"
 
@@ -17,8 +18,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Organisation"
+            android:text="Organisation:"
+            android:textColor="@color/black"
             android:layout_weight="4"
+            android:textSize="20sp"
             android:gravity="center"
             android:id="@+id/organistion" />
 
@@ -27,6 +30,8 @@
             android:layout_height="wrap_content"
             android:text="Organisation Name"
             android:layout_weight="6"
+            android:textSize="20sp"
+
             android:id="@+id/org_name" />
     </LinearLayout>
 
@@ -42,8 +47,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="Title:"
+            android:textColor="@color/black"
+
             android:layout_weight="4"
+            android:textSize="20sp"
+
+
             android:gravity="center"
             android:id="@+id/textView3" />
 
@@ -70,10 +80,11 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Submit"
         android:layout_weight="1"
         android:id="@+id/submit"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

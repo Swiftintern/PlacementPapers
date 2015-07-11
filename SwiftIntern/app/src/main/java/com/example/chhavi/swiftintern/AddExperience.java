@@ -8,6 +8,7 @@ import android.text.Html;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 import com.example.chhavi.swiftintern.Utility.Constants;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
+import com.google.android.gms.analytics.HitBuilders;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,28 +36,34 @@ import models.LoginResponse;
 public class AddExperience extends AppCompatActivity {
     private EditText experience;
     private String experienceString;
-     private Button submit;
+    private Button submit;
     private String orgId;
     private EditText title;
+    private TextView org_name;
     GsonRequest myReq;
     private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_paper_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         orgId = getIntent().getExtras().getString("organisation_id");
         userId = AppPreferences.getUserId(AddExperience.this);
-        Log.e("details",orgId+" "+userId);
-        experience = (EditText)findViewById(R.id.experience_text);
-        title = (EditText)findViewById(R.id.title);
-        submit = (Button)findViewById(R.id.submit);
-        final TextView text = (TextView)findViewById(R.id.org_name);
+        String orgName = getIntent().getExtras().getString("organisation_name");
+        org_name = (TextView) findViewById(R.id.org_name);
+        org_name.setText(orgName);
+        //Log.e("details",orgId+" "+userId);
+        experience = (EditText) findViewById(R.id.experience_text);
+        title = (EditText) findViewById(R.id.title);
+        submit = (Button) findViewById(R.id.submit);
+        final TextView text = (TextView) findViewById(R.id.org_name);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String orgTitle = title.getText().toString();
-                if(experience.getText().toString()!=null && !experience.getText().toString().equals("") && orgTitle!=null && !orgTitle.equals("")){
-                  //  experienceString = experience.getText().toString().replaceAll("\\n", "<br>");
+                if (experience.getText().toString() != null && !experience.getText().toString().equals("") && orgTitle != null && !orgTitle.equals("")) {
+                    //  experienceString = experience.getText().toString().replaceAll("\\n", "<br>");
                     //
                     //experienceString = TextUtils.htmlEncode(experienceString);
                     //Log.e("response", experienceString);
@@ -64,13 +72,13 @@ public class AddExperience extends AppCompatActivity {
 
                     /*text.setText(experienceString);
                     text.setText(Html.fromHtml(experienceString));*/
-                    saveExperience(orgTitle,experienceString);
-                }else{
-                    Toast.makeText(AddExperience.this,"Please fill all details",Toast.LENGTH_LONG);
+                    saveExperience(orgTitle, experienceString);
+                } else {
+                    Toast.makeText(AddExperience.this, "Please fill all details", Toast.LENGTH_LONG);
                 }
-            //
+                //
 
-             //   experience.setText(experienceString);
+                //   experience.setText(experienceString);
                 //Log.e("response", experienceString);
                 //TODO a lot of work
 
@@ -79,20 +87,18 @@ public class AddExperience extends AppCompatActivity {
         });
 
 
-
-
-     //   setContentView();
+        //   setContentView();
     }
-    private void saveExperience(String title,String details){
-        Map<String,String> params = new HashMap<String, String>();
+
+    private void saveExperience(String title, String details) {
+        Map<String, String> params = new HashMap<String, String>();
         params.put("title", title);
         params.put("details", details);
         params.put("user_id", userId);
-        String url = "http://swiftintern.com/organizations/saveExperience/"+orgId+".json";
+        String url = "http://swiftintern.com/organizations/saveExperience/" + orgId + ".json";
         myReq = new GsonRequest<AddPaperExperience>(Request.Method.POST, url,
-                AddPaperExperience.class,params,createMyReqSuccessListener(), createMyReqErrorListener());
+                AddPaperExperience.class, params, createMyReqSuccessListener(), createMyReqErrorListener());
         AppController.getInstance().addToRequestQueue(myReq);
-
 
 
     }
@@ -112,11 +118,11 @@ public class AddExperience extends AppCompatActivity {
             @Override
             public void onResponse(AddPaperExperience addPaperExperience) {
                 boolean success = addPaperExperience.isSuccess();
-                if(success){
+                if (success) {
                     Toast.makeText(AddExperience.this, "Your Experience has been added successfully", Toast.LENGTH_LONG).show();
                     finish();
 
-                }else{
+                } else {
                     Toast.makeText(AddExperience.this, "An error occured, please try again", Toast.LENGTH_LONG).show();
 
 
@@ -125,5 +131,19 @@ public class AddExperience extends AppCompatActivity {
 
             }
         };
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // return super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                this.finish();
+
+                break;
+        }
+        return true;
     }
 }
