@@ -1,7 +1,5 @@
 package com.example.chhavi.swiftintern;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
@@ -9,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,10 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -31,10 +26,9 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.android.volley.toolbox.Volley;
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
@@ -45,7 +39,6 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import models.CompaniesResponse;
 import models.Organization;
-import models.SavedExperience;
 
 /**
  * Created by chhavi on 18/6/15.

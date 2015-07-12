@@ -1,6 +1,5 @@
 package com.example.chhavi.swiftintern.Utility;
 
-import android.app.Application;
 import android.text.TextUtils;
 
 import com.android.volley.Request;

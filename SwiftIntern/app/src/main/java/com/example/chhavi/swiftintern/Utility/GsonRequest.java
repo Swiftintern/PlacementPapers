@@ -3,8 +3,6 @@ package com.example.chhavi.swiftintern.Utility;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
-import android.util.Log;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;

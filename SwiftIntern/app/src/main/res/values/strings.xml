@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PlacementExperiences</string>
+    <string name="app_name">Placement Experiences</string>
     <string name="searnch_hint">Enter Organisation</string>
     <string name="no_org_found">Sorry, No organisation was found matching your query.</string>
     <string name="no_saved_papers">You don\'t have any saved experiences.</string>

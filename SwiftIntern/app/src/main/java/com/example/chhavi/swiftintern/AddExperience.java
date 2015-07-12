@@ -1,13 +1,9 @@
 package com.example.chhavi.swiftintern;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,17 +14,16 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 import com.example.chhavi.swiftintern.Utility.Constants;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
-import com.google.android.gms.analytics.HitBuilders;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import models.AddPaperExperience;
-import models.LoginResponse;
 
 /**
  * Created by chhavi on 8/7/15.

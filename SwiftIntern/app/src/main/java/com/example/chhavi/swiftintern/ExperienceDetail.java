@@ -1,16 +1,15 @@
 package com.example.chhavi.swiftintern;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.Constants;
 
 import models.SavedExperience;

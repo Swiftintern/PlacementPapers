@@ -17,20 +17,17 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 import com.example.chhavi.swiftintern.Utility.Constants;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
-import junit.framework.TestCase;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import models.CompaniesResponse;
 import models.LoginResponse;
 import models.User;
 
@@ -110,6 +107,7 @@ public class LogInActivity extends Activity {
                 Log.e("error",volleyError.toString());
                 Toast.makeText(LogInActivity.this, Constants.VOLLEY_ERROR,Toast.LENGTH_LONG).show();
                 registerButton.setClickable(true);
+                progressBar.setVisibility(View.INVISIBLE);
 
             }
         };
