@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
+import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +38,11 @@ public class SearchResultsActivity extends ActionBarActivity {
     GsonRequest<CompaniesResponse> myReq;
     List<Organization> organizations;
     private TextView noOrg;
+    GoogleProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.search_results_layout);
         getSupportActionBar().setTitle("Search Results");
         handleIntent(getIntent());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,6 +63,7 @@ public class SearchResultsActivity extends ActionBarActivity {
             Log.e("query", query);
             String url = "http://swiftintern.com/organizations.json?limit=20&name=";
             url = url + query;
+            progressBar = (GoogleProgressBar)findViewById(R.id.google_progress);
             loadContent(url);
 
            // setContentView(R.layout.companies_list_item);
@@ -91,8 +95,9 @@ public class SearchResultsActivity extends ActionBarActivity {
             @Override
             public void onResponse(CompaniesResponse companiesResponse) {
                 Log.e("response", companiesResponse.toString());
+                progressBar.setVisibility(View.GONE);
 
-                setContentView(R.layout.search_results_layout);
+
                 noOrg = (TextView)findViewById(R.id.no_organisations_message);
                 ListView searchResults = (ListView)findViewById(R.id.results_list);
 

@@ -15,4 +15,10 @@
 
         app:showAsAction="never"
        />
+    <item
+        android:id="@+id/about_app_option"
+        android:title="About Us"
+
+        app:showAsAction="never"
+        />
 </menu>

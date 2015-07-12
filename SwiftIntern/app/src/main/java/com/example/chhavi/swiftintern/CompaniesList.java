@@ -170,6 +170,11 @@ GridView companiesList;
                 Log.e("saved", savedExperienceList.get(0).getText());*/
 
                 break;
+            case R.id.about_app_option:
+                 i = new Intent(CompaniesList.this,AboutUs.class);
+                startActivity(i);
+                break;
+
 
 
         }

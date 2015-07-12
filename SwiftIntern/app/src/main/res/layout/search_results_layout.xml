@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
+
     android:layout_height="match_parent">
+
+    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+        android:id="@+id/google_progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        gpb:type="chrome_floating_circles"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
 
     <ListView
         android:layout_width="match_parent"

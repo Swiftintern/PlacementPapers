@@ -3,4 +3,9 @@
     <string name="searnch_hint">Enter Organisation</string>
     <string name="no_org_found">Sorry, No organisation was found matching your query.</string>
     <string name="no_saved_papers">You don\'t have any saved experiences.</string>
+    <string name="about_app">This app has been created and maintained by Swiftintern.com, it make sharing Placement Experience fun. Share any suggestions ideas to us at info@swiftintern.com, we would glad to hear that, if you want to join us to make this app better send your resume to info@swiftintern.com
+More to be coming soon.\n</string>
+    <string name="about_swiftintern">SwiftIntern is the India\'s largest student-focused internship portal, bringing students, employers and higher education institutions together in one centralized location. Swiftintern.com provides a wide variety of interactive tools and services to enable every student, employer and educator to better understand and optimize internship opportunities, enabling businesses to identify the best job candidates and for students to develop the real-world skills they will need upon graduation.</string>
+
+
 </resources>

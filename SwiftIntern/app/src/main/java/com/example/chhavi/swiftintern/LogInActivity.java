@@ -21,6 +21,7 @@ import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 import com.example.chhavi.swiftintern.Utility.Constants;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
+import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import junit.framework.TestCase;
 
@@ -40,6 +41,8 @@ public class LogInActivity extends Activity {
         private Spinner accountNames;
         private Button registerButton;
         private TextView nameText;
+    GoogleProgressBar progressBar;
+
     private Handler mHandler;
     private GsonRequest myReq;
     private  String url;
@@ -47,6 +50,8 @@ public class LogInActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
+        progressBar = (GoogleProgressBar)findViewById(R.id.google_progress);
+        progressBar.setVisibility(View.GONE);
         mHandler = new Handler();
         registerButton = (Button)findViewById(R.id.register_button);
         nameText = (TextView)findViewById(R.id.name_text);
@@ -74,6 +79,8 @@ public class LogInActivity extends Activity {
                     Log.e("credentials",name+email);
                     url = "http://swiftintern.com/app/student.json";
                     loadContent(name,email);
+                    registerButton.setClickable(false);
+                    progressBar.setVisibility(View.VISIBLE);
 
                 }else{
                     Toast.makeText(LogInActivity.this,"Please enter your credentials",Toast.LENGTH_LONG).show();
@@ -102,6 +109,7 @@ public class LogInActivity extends Activity {
             public void onErrorResponse(VolleyError volleyError) {
                 Log.e("error",volleyError.toString());
                 Toast.makeText(LogInActivity.this, Constants.VOLLEY_ERROR,Toast.LENGTH_LONG).show();
+                registerButton.setClickable(true);
 
             }
         };
