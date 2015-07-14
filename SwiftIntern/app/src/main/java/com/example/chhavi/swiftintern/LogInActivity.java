@@ -14,14 +14,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 import com.example.chhavi.swiftintern.Utility.Constants;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
+import com.example.chhavi.swiftintern.Utility.Utils;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import java.util.ArrayList;
@@ -104,8 +107,9 @@ public class LogInActivity extends Activity {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.e("error",volleyError.toString());
-                Toast.makeText(LogInActivity.this, Constants.VOLLEY_ERROR,Toast.LENGTH_LONG).show();
+                Log.e("error", volleyError.toString());
+                if(volleyError instanceof NoConnectionError || volleyError instanceof TimeoutError)
+                    Utils.noNetworkMessage(LogInActivity.this, myReq);
                 registerButton.setClickable(true);
                 progressBar.setVisibility(View.INVISIBLE);
 
