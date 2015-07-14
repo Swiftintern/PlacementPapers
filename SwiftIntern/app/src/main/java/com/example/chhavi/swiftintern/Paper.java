@@ -115,6 +115,7 @@ public class Paper extends ActionBarActivity {
     public void makeLayout(PapersResponse papersResponse ){
          organization = papersResponse.getOrganization();
         experiences = papersResponse.getExperiences();
+        getSupportActionBar().setTitle(organization.getName());
         orgName.setText(organization.getName());
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(this));

@@ -65,6 +65,11 @@ public class ViewSavedPapers extends AppCompatActivity {
 
            savedPaperList.setAdapter(adapter);
            registerForContextMenu(savedPaperList);
+       }else {
+           noPaper.setVisibility(View.VISIBLE);
+           savedPaperList.setVisibility(View.GONE);
+
+
        }
    }
 

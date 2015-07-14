@@ -11,10 +11,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="40dp"
         android:text="@string/no_saved_papers"
         android:gravity="center"
         android:id="@+id/no_save_message"
+        android:visibility="gone"
 
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
