@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chhavi.swiftintern.R;
+import com.swiftintern.placement.R;
 import com.example.chhavi.swiftintern.Utility.Constants;
 
 import models.SavedExperience;

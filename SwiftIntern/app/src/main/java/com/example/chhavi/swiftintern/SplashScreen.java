@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
-import com.chhavi.swiftintern.R;
+import com.swiftintern.placement.R;
 import com.example.chhavi.swiftintern.Utility.AppPreferences;
 
 /**

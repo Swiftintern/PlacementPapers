@@ -12,7 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.chhavi.swiftintern.R;
+
+import com.swiftintern.placement.R;
 
 import java.util.ArrayList;
 import java.util.List;
