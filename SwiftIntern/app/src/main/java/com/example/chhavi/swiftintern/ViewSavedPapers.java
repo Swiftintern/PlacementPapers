@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-import com.swiftintern.placement.R;
+import com.chhavi.swiftintern.R;
 
 import java.util.ArrayList;
 import java.util.List;

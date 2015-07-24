@@ -17,7 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.swiftintern.placement.R;
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;

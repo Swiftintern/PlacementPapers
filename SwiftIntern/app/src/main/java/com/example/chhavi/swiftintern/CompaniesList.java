@@ -28,7 +28,7 @@ import com.android.volley.VolleyError;
 
 import java.util.List;
 
-import com.swiftintern.placement.R;
+import com.chhavi.swiftintern.R;
 import com.example.chhavi.swiftintern.Utility.AppController;
 import com.example.chhavi.swiftintern.Utility.GsonRequest;
 import com.example.chhavi.swiftintern.Utility.Utils;
